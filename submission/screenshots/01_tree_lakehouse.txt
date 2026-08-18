@@ -1,0 +1,122 @@
+Day 18 Lakehouse Lab - lightweight path evidence (rubric bullet 2)
+Equivalent of: tree _lakehouse/
+Totals: 1,236 files, 111.2 MB   (listing capped at depth 3, 6 files/dir)
+
+_lakehouse/
+|-- blobs/   [200 files, 12.5 MB]
+|   |-- frame_0000.bin   (65,536 B)
+|   |-- frame_0001.bin   (65,536 B)
+|   |-- frame_0002.bin   (65,536 B)
+|   |-- frame_0003.bin   (65,536 B)
+|   |-- frame_0004.bin   (65,536 B)
+|   |-- frame_0005.bin   (65,536 B)
+|   `-- ... 194 more file(s)
+|-- bronze/   [6 files, 16.0 MB]
+|   |-- agent_traces/   [2 files, 31 KB]
+|   |   |-- _delta_log/   [1 files, 2 KB]
+|   |   `-- part-00000-eb00b398-b0d0-464a-9021-6d7ce72bf3b6-c000.snappy.parquet   (29,519 B)
+|   |-- docs_multimodal/   [2 files, 2.6 MB]
+|   |   |-- _delta_log/   [1 files, 2 KB]
+|   |   `-- part-00000-12aeacf6-cd2a-4ef8-8bc4-869c1a50f49a-c000.snappy.parquet   (2,706,783 B)
+|   `-- llm_calls_raw/   [2 files, 13.3 MB]
+|       |-- _delta_log/   [1 files, 2 KB]
+|       `-- part-00000-f1cf3010-6873-44a5-9058-4ab79472a0ab-c000.snappy.parquet   (13,987,263 B)
+|-- gold/   [20 files, 66 KB]
+|   |-- agent_performance/   [2 files, 4 KB]
+|   |   |-- _delta_log/   [1 files, 2 KB]
+|   |   `-- part-00000-6bf8aa24-801a-4628-95c2-4b105de2cef2-c000.snappy.parquet   (2,471 B)
+|   `-- llm_daily_metrics/   [18 files, 61 KB]
+|       |-- _delta_log/   [2 files, 19 KB]
+|       |-- date=2026-04-01/   [2 files, 5 KB]
+|       |-- date=2026-04-02/   [2 files, 5 KB]
+|       |-- date=2026-04-03/   [2 files, 5 KB]
+|       |-- date=2026-04-04/   [2 files, 5 KB]
+|       |-- date=2026-04-05/   [2 files, 5 KB]
+|       |-- date=2026-04-06/   [2 files, 5 KB]
+|       |-- date=2026-04-07/   [2 files, 5 KB]
+|       `-- date=2026-04-08/   [2 files, 5 KB]
+|-- iceberg/   [124 files, 632 KB]
+|   |-- nb5/   [52 files, 261 KB]
+|   |   |-- warehouse/   [51 files, 241 KB]
+|   |   `-- catalog.db   (20,480 B)
+|   |-- nb6/   [66 files, 340 KB]
+|   |   |-- warehouse/   [65 files, 320 KB]
+|   |   `-- catalog.db   (20,480 B)
+|   `-- nb8/   [6 files, 31 KB]
+|       |-- warehouse/   [5 files, 11 KB]
+|       `-- catalog.db   (20,480 B)
+|-- scratch/   [861 files, 71.9 MB]
+|   |-- customers_tt/   [9 files, 2.0 MB]
+|   |   |-- _delta_log/   [5 files, 6 KB]
+|   |   |-- part-00000-48af48b2-2144-414b-b95c-9f79f684d864-c000.snappy.parquet   (622,767 B)
+|   |   |-- part-00000-4aac943c-c423-4c1f-9a31-0225f939b4ef-c000.snappy.parquet   (888,157 B)
+|   |   |-- part-00000-6f04c46e-6618-4d1b-a824-6adbe9c08eaf-c000.snappy.parquet   (1,570 B)
+|   |   `-- part-00000-cc6bc0ea-da17-4ac2-89c6-537631b605e5-c000.snappy.parquet   (623,399 B)
+|   |-- docs_cdf/   [5 files, 23 KB]
+|   |   |-- _change_data/   [1 files, 1 KB]
+|   |   |-- _delta_log/   [2 files, 2 KB]
+|   |   |-- part-00000-0003faa4-4147-4b67-b842-cd3ba98a834a-c000.zstd.parquet   (7,440 B)
+|   |   `-- part-00000-0d387218-1f0b-4d96-beb1-9dc207684dee-c000.snappy.parquet   (12,963 B)
+|   |-- docs_intable/   [4 files, 5.0 MB]
+|   |   |-- _delta_log/   [2 files, 4 KB]
+|   |   |-- part-00000-08b82d7e-e406-481b-bff3-020e8e52566b-c000.zstd.parquet   (2,504,539 B)
+|   |   `-- part-00000-08f8db7c-55d1-44d6-9671-314a39fd592b-c000.snappy.parquet   (2,706,767 B)
+|   |-- emb_f32/   [2 files, 2.6 MB]
+|   |   |-- _delta_log/   [1 files, 1 KB]
+|   |   `-- part-00000-eef8adab-3f71-4af6-ad25-3b5e1f622cee-c000.snappy.parquet   (2,684,023 B)
+|   |-- emb_int8/   [2 files, 452 KB]
+|   |   |-- _delta_log/   [1 files, 1 KB]
+|   |   `-- part-00000-7a4ab8f0-9bfe-4cc6-b8af-4567ff69f2ca-c000.snappy.parquet   (461,512 B)
+|   |-- events_smallfiles/   [611 files, 40.2 MB]
+|   |   |-- _delta_log/   [207 files, 552 KB]
+|   |   |-- part-00000-00db2629-63e1-45d4-864c-efdc1edf12d2-c000.zstd.parquet   (122,578 B)
+|   |   |-- part-00000-01c30778-6038-47f8-8c15-60a010679141-c000.snappy.parquet   (65,864 B)
+|   |   |-- part-00000-037be119-8014-42de-9ad5-07f1df999d4e-c000.snappy.parquet   (66,033 B)
+|   |   |-- part-00000-03ab47f4-74c7-4224-b093-4f4d79a6e5bd-c000.snappy.parquet   (65,999 B)
+|   |   |-- part-00000-0416f8f8-2c58-47c9-918a-4e2701bbf57f-c000.snappy.parquet   (65,959 B)
+|   |   |-- part-00000-04424fa6-62e7-43eb-bc71-3ffa912ce55f-c000.zstd.parquet   (245,565 B)
+|   |   `-- ... 398 more file(s)
+|   |-- maint_events/   [218 files, 6.7 MB]
+|   |   |-- _delta_log/   [208 files, 477 KB]
+|   |   |-- part-00000-6c5906cf-3363-400f-9b20-f7156f7f54dc-c000.zstd.parquet   (665,580 B)
+|   |   |-- part-00001-6c5906cf-3363-400f-9b20-f7156f7f54dc-c000.zstd.parquet   (663,489 B)
+|   |   |-- part-00002-6c5906cf-3363-400f-9b20-f7156f7f54dc-c000.zstd.parquet   (664,817 B)
+|   |   |-- part-00003-6c5906cf-3363-400f-9b20-f7156f7f54dc-c000.zstd.parquet   (664,285 B)
+|   |   |-- part-00004-6c5906cf-3363-400f-9b20-f7156f7f54dc-c000.zstd.parquet   (664,850 B)
+|   |   |-- part-00005-6c5906cf-3363-400f-9b20-f7156f7f54dc-c000.zstd.parquet   (664,370 B)
+|   |   `-- ... 4 more file(s)
+|   |-- media_inline/   [2 files, 12.5 MB]
+|   |   |-- _delta_log/   [1 files, 1 KB]
+|   |   `-- part-00000-65a59eac-717e-4a84-8134-8a9b51157e94-c000.snappy.parquet   (13,111,245 B)
+|   |-- media_pointer/   [2 files, 5 KB]
+|   |   |-- _delta_log/   [1 files, 1 KB]
+|   |   `-- part-00000-54124c2b-3a88-402d-95b3-04ee71a4ca3a-c000.snappy.parquet   (3,480 B)
+|   |-- users_delta/   [4 files, 6 KB]
+|   |   |-- _delta_log/   [2 files, 3 KB]
+|   |   |-- part-00000-2efd9378-340d-4fbf-b497-a70ab97e08d8-c000.snappy.parquet   (1,384 B)
+|   |   `-- part-00000-82484de7-24e2-4207-9757-74712c7cbab0-c000.snappy.parquet   (1,548 B)
+|   `-- vector_index_external/   [2 files, 2.6 MB]
+|       |-- _delta_log/   [1 files, 1 KB]
+|       `-- part-00000-351a9300-b7c4-4d48-b132-3331214aa700-c000.snappy.parquet   (2,684,023 B)
+`-- silver/   [25 files, 10.2 MB]
+    |-- agent_trajectories/   [5 files, 58 KB]
+    |   |-- _delta_log/   [2 files, 4 KB]
+    |   |-- agent_version=policy-v2/   [2 files, 33 KB]
+    |   `-- agent_version=policy-v3/   [1 files, 21 KB]
+    |-- llm_calls/   [9 files, 10.0 MB]
+    |   |-- _delta_log/   [1 files, 9 KB]
+    |   |-- date=2026-04-01/   [1 files, 1.0 MB]
+    |   |-- date=2026-04-02/   [1 files, 1.4 MB]
+    |   |-- date=2026-04-03/   [1 files, 1.4 MB]
+    |   |-- date=2026-04-04/   [1 files, 1.4 MB]
+    |   |-- date=2026-04-05/   [1 files, 1.4 MB]
+    |   |-- date=2026-04-06/   [1 files, 1.4 MB]
+    |   |-- date=2026-04-07/   [1 files, 1.4 MB]
+    |   `-- date=2026-04-08/   [1 files, 456 KB]
+    `-- training_corpus_governed/   [11 files, 83 KB]
+        |-- _delta_log/   [2 files, 11 KB]
+        |-- provenance_bucket=UNCLASSIFIED/   [2 files, 14 KB]
+        |-- provenance_bucket=licensed/   [2 files, 22 KB]
+        |-- provenance_bucket=public_domain/   [1 files, 8 KB]
+        |-- provenance_bucket=scraped_optout_checked/   [2 files, 14 KB]
+        `-- provenance_bucket=synthetic/   [2 files, 14 KB]
